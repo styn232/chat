@@ -1,0 +1,145 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "bio": { "type": "string" },
+        "age": { "type": "number" },
+        "country": { "type": "string" },
+        "city": { "type": "string" },
+        "gender": { "type": "string", "enum": ["male", "female", "other"] },
+        "isPremium": { "type": "boolean" },
+        "role": { "type": "string", "enum": ["user", "admin"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email"]
+    },
+    "Message": {
+      "title": "Message",
+      "description": "Chat message",
+      "type": "object",
+      "properties": {
+        "senderId": { "type": "string" },
+        "receiverId": { "type": "string" },
+        "groupId": { "type": "string" },
+        "text": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "roomId": { "type": "string" }
+      },
+      "required": ["senderId", "text", "timestamp"]
+    },
+    "Group": {
+      "title": "Group",
+      "description": "Chat group",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "createdBy": { "type": "string" },
+        "members": { "type": "array", "items": { "type": "string" } },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "createdBy", "members", "createdAt"]
+    },
+    "Post": {
+      "title": "Post",
+      "description": "Social wall post",
+      "type": "object",
+      "properties": {
+        "authorId": { "type": "string" },
+        "authorName": { "type": "string" },
+        "content": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "likes": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["authorId", "content", "createdAt"]
+    },
+    "SearchQuery": {
+      "title": "SearchQuery",
+      "description": "Stored search query",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "query": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "query", "timestamp"]
+    },
+    "TypingIndicator": {
+      "title": "TypingIndicator",
+      "description": "User typing status in a room",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "roomId": { "type": "string" },
+        "isTyping": { "type": "boolean" },
+        "lastUpdated": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "roomId", "isTyping", "lastUpdated"]
+    },
+    "AppConfig": {
+      "title": "AppConfig",
+      "description": "Global application configuration",
+      "type": "object",
+      "properties": {
+        "proPrice": { "type": "number" },
+        "manualPaymentInfo": { "type": "string" }
+      }
+    },
+    "PaymentRequest": {
+      "title": "PaymentRequest",
+      "description": "Manual payment request for premium",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "amount": { "type": "number" },
+        "status": { "type": "string", "enum": ["pending", "approved", "rejected"] },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "amount", "status", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "/messages/{messageId}": {
+      "schema": "Message",
+      "description": "Direct messages"
+    },
+    "/posts/{postId}": {
+      "schema": "Post",
+      "description": "Social wall posts"
+    },
+    "/groups/{groupId}": {
+      "schema": "Group",
+      "description": "Chat groups"
+    },
+    "/searchHistory/{queryId}": {
+      "schema": "SearchQuery",
+      "description": "User search history"
+    },
+    "/typing/{typingId}": {
+      "schema": "TypingIndicator",
+      "description": "Real-time typing indicators"
+    },
+    "/config/global": {
+      "schema": "AppConfig",
+      "description": "Global settings"
+    },
+    "/paymentRequests/{requestId}": {
+      "schema": "PaymentRequest",
+      "description": "Manual payment requests"
+    }
+  }
+}

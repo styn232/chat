@@ -1,0 +1,8 @@
+{
+  "name": "SuperApp: Social, Chat & Match",
+  "description": "A production-level super app featuring real-time chat, social stories, and smart matching.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
