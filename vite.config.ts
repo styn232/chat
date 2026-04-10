@@ -15,6 +15,16 @@ export default defineConfig(({mode}) => {
         '@': path.resolve(__dirname, '.'),
       },
     },
+    build: {
+      rollupOptions: {
+        onwarn(warning, warn) {
+          if (warning.code === 'MODULE_LEVEL_DIRECTIVE' && warning.message.includes('use client')) {
+            return;
+          }
+          warn(warning);
+        },
+      },
+    },
     server: {
       // HMR is disabled in AI Studio to prevent flickering and port conflicts.
       hmr: false,
