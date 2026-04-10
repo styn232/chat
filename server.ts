@@ -17,7 +17,7 @@ async function startServer() {
     },
   });
 
-  const PORT = 3001;
+  const PORT = 3010;
 
   // Socket.io logic
   io.on("connection", (socket) => {
@@ -50,7 +50,10 @@ async function startServer() {
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
-      server: { middlewareMode: true },
+      server: { 
+        middlewareMode: true,
+        hmr: { port: 3011 }
+      },
       appType: "spa",
     });
     app.use(vite.middlewares);
