@@ -1,5 +1,6 @@
 import React, { StrictMode, useState, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
+import './index.css';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   MessageCircle, 
