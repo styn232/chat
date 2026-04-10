@@ -17,7 +17,8 @@ async function startServer() {
     },
   });
 
-  const PORT = Number(process.env.PORT) || 3000;
+  const PORT = 3000;
+  console.log(`Attempting to start server on port ${PORT}...`);
 
   // Socket.io logic
   io.on("connection", (socket) => {
@@ -49,15 +50,17 @@ async function startServer() {
 
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
+    console.log("Initializing Vite server in development mode...");
     const vite = await createViteServer({
       server: { 
         middlewareMode: true,
-        hmr: { port: 3011 }
       },
       appType: "spa",
     });
+    console.log("Vite server initialized.");
     app.use(vite.middlewares);
   } else {
+    console.log("Running in production mode.");
     const distPath = path.join(process.cwd(), "dist");
     app.use(express.static(distPath));
     app.get("*", (req, res) => {
@@ -66,7 +69,9 @@ async function startServer() {
   }
 
   httpServer.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server successfully started and listening on http://0.0.0.0:${PORT}`);
+  }).on('error', (err) => {
+    console.error('Failed to start server:', err);
   });
 }
 
