@@ -1,6 +1,6 @@
+import './index.css';
 import React, { StrictMode, useState, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   MessageCircle, 
@@ -47,7 +47,6 @@ import {
 import { cn } from './lib/utils';
 import { Toaster, toast } from 'sonner';
 import axios from 'axios';
-import './index.css';
 
 // --- Helpers ---
 const uploadToCloudinary = async (file: File) => {

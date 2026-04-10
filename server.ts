@@ -17,7 +17,7 @@ async function startServer() {
     },
   });
 
-  const PORT = 3010;
+  const PORT = Number(process.env.PORT) || 3000;
 
   // Socket.io logic
   io.on("connection", (socket) => {
