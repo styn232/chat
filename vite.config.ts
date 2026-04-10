@@ -18,7 +18,11 @@ export default defineConfig(({mode}) => {
     build: {
       rollupOptions: {
         onwarn(warning, warn) {
-          if (warning.code === 'MODULE_LEVEL_DIRECTIVE' && warning.message.includes('use client')) {
+          if (
+            warning.code === 'MODULE_LEVEL_DIRECTIVE' ||
+            warning.message.includes('use client') ||
+            warning.message.includes('Module level directives')
+          ) {
             return;
           }
           warn(warning);
