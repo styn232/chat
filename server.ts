@@ -54,6 +54,9 @@ async function startServer() {
     const vite = await createViteServer({
       server: { 
         middlewareMode: true,
+        hmr: {
+          port: 3001
+        }
       },
       appType: "spa",
     });
