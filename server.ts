@@ -18,7 +18,7 @@ async function startServer() {
   });
 
   const PORT = 3000;
-  console.log(`Attempting to start server on port ${PORT}...`);
+  console.log(`Server attempting to start on port ${PORT}...`);
 
   // Socket.io logic
   io.on("connection", (socket) => {
@@ -54,9 +54,7 @@ async function startServer() {
     const vite = await createViteServer({
       server: { 
         middlewareMode: true,
-        hmr: {
-          port: 3001
-        }
+        hmr: false,
       },
       appType: "spa",
     });
