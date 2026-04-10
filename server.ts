@@ -17,7 +17,7 @@ async function startServer() {
     },
   });
 
-  const PORT = 3000;
+  const PORT = Number(process.env.PORT) || 3000;
   console.log(`Server attempting to start on port ${PORT}...`);
 
   // Socket.io logic
