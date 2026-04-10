@@ -290,7 +290,7 @@ const Login = () => {
           <div className="w-20 h-20 bg-emerald-500 rounded-3xl mx-auto flex items-center justify-center shadow-2xl shadow-emerald-500/20">
             <Flame className="w-10 h-10 text-white fill-white" />
           </div>
-          <h1 className="text-4xl font-bold tracking-tighter">SuperApp</h1>
+          <h1 className="text-4xl font-bold tracking-tighter">Heart</h1>
           <p className="text-zinc-400">Chat, Social & Matching in one place.</p>
         </div>
         
@@ -904,7 +904,7 @@ const SocialView = ({ user }: { user: FirebaseUser }) => {
               <Flame className="w-8 h-8 fill-white" />
             </div>
             <div className="flex-1">
-              <h4 className="text-sm font-bold text-[var(--text-primary)]">SuperApp Premium</h4>
+              <h4 className="text-sm font-bold text-[var(--text-primary)]">Heart Premium</h4>
               <p className="text-[11px] text-[var(--text-secondary)] leading-tight">Unlock exclusive matches, ad-free experience, and custom themes!</p>
             </div>
             <button className="px-4 py-2 bg-emerald-500 text-white rounded-xl text-[10px] font-bold shadow-md hover:brightness-110 transition-all">Upgrade</button>

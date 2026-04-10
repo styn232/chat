@@ -44,7 +44,7 @@ async function startServer() {
   app.use(express.json());
 
   app.get("/api/health", (req, res) => {
-    res.json({ status: "ok", message: "SuperApp Backend is running" });
+    res.json({ status: "ok", message: "Heart Backend is running" });
   });
 
   // Vite middleware for development
