@@ -35,7 +35,11 @@ async function startServer() {
   });
 
   const PORT = Number(process.env.PORT) || 3000;
-  console.log(`Server attempting to start on port ${PORT}...`);
+  const NODE_ENV = process.env.NODE_ENV || 'development';
+  console.log(`>>> Starting Heart Server...`);
+  console.log(`>>> Port: ${PORT}`);
+  console.log(`>>> Environment: ${NODE_ENV}`);
+  console.log(`>>> Working Dir: ${process.cwd()}`);
 
   // Socket.io logic
   io.on("connection", (socket) => {
