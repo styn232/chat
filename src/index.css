@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@source "../src/**/*.{ts,tsx,html}";
+@source "./**/*.{ts,tsx,html}";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -27,16 +27,18 @@
   --accent: #00a884;
 }
 
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #0b141a; /* Fallback for dark mode */
+  color: #e9edef;
+}
+
 :root {
   background-color: var(--bg-app);
   color: var(--text-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
 }
 
 * {

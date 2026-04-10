@@ -271,45 +271,58 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#0b141a] text-white p-4">
+    <div 
+      className="min-h-screen flex flex-col items-center justify-center bg-[#0b141a] text-white p-6"
+      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
+    >
       <motion.div 
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
         className="max-w-md w-full text-center space-y-12"
       >
-        <div className="space-y-4">
+        <div className="space-y-6">
           <motion.div 
             animate={{ 
-              scale: [1, 1.1, 1],
-              rotate: [0, 5, -5, 0]
+              scale: [1, 1.05, 1],
+              rotate: [0, 2, -2, 0]
             }}
-            transition={{ repeat: Infinity, duration: 4 }}
-            className="w-24 h-24 bg-emerald-500 rounded-[2.5rem] mx-auto flex items-center justify-center shadow-2xl shadow-emerald-500/40"
+            transition={{ repeat: Infinity, duration: 6, ease: "linear" }}
+            className="w-28 h-28 bg-emerald-500 rounded-[2.5rem] mx-auto flex items-center justify-center shadow-[0_0_50px_rgba(16,185,129,0.3)]"
           >
-            <Flame className="w-12 h-12 text-white fill-white" />
+            <Flame className="w-14 h-14 text-white fill-white" />
           </motion.div>
-          <div className="space-y-1">
-            <h1 className="text-5xl font-black tracking-tighter text-white">Heart</h1>
-            <p className="text-emerald-500 font-bold tracking-widest uppercase text-[10px]">Styn Africa Premium</p>
+          
+          <div className="space-y-2">
+            <h1 className="text-6xl font-black tracking-tighter text-white">Heart</h1>
+            <div className="flex items-center justify-center gap-2">
+              <div className="h-[1px] w-8 bg-emerald-500/30" />
+              <p className="text-emerald-500 font-black tracking-[0.2em] uppercase text-[10px]">Styn Africa Premium</p>
+              <div className="h-[1px] w-8 bg-emerald-500/30" />
+            </div>
           </div>
-          <p className="text-zinc-400 text-sm max-w-[250px] mx-auto">The most powerful social & matching platform in Africa.</p>
+          
+          <p className="text-zinc-400 text-sm max-w-[280px] mx-auto leading-relaxed">
+            The most powerful social & matching platform in Africa.
+          </p>
         </div>
         
-        <div className="space-y-3">
+        <div className="space-y-4">
           <button 
             onClick={handleLogin}
-            className="w-full py-4 bg-white text-black font-black rounded-2xl hover:bg-zinc-200 transition-all flex items-center justify-center gap-3 shadow-xl"
+            className="w-full py-4 bg-white text-black font-black rounded-2xl hover:bg-zinc-200 active:scale-[0.98] transition-all flex items-center justify-center gap-3 shadow-2xl"
           >
             <img src="https://www.google.com/favicon.ico" className="w-5 h-5" alt="Google" />
             Continue with Google
           </button>
-          <p className="text-[10px] text-zinc-500">By continuing, you agree to our Terms & Privacy Policy.</p>
+          <p className="text-[10px] text-zinc-500 font-medium">
+            By continuing, you agree to our <span className="underline">Terms</span> & <span className="underline">Privacy Policy</span>.
+          </p>
         </div>
 
-        <div className="pt-12 flex items-center justify-center gap-8 opacity-20 grayscale">
-          <div className="h-4 w-20 bg-white rounded-full" />
-          <div className="h-4 w-16 bg-white rounded-full" />
-          <div className="h-4 w-24 bg-white rounded-full" />
+        <div className="pt-16 flex items-center justify-center gap-6 opacity-10 grayscale">
+          <div className="h-3 w-16 bg-white rounded-full" />
+          <div className="h-3 w-12 bg-white rounded-full" />
+          <div className="h-3 w-20 bg-white rounded-full" />
         </div>
       </motion.div>
     </div>
