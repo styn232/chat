@@ -18,6 +18,9 @@ export default defineConfig(({mode}) => {
     server: {
       // HMR is disabled in AI Studio to prevent flickering and port conflicts.
       hmr: false,
+      watch: {
+        usePolling: true,
+      },
       allowedHosts: true,
     },
   };
